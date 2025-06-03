@@ -35,6 +35,12 @@ const workerMethods = {
     oscOverTCP.on('open', () => {
       console.log('[Worker] OSC TCP (WebSocket) connection opened.');
       statusCallback?.('OSC TCP Connected');
+      oscOverTCP?.send(
+        new OSC.Message(
+          "/register",
+          `osc.tcp://${someClientIdentifier}:${someClientPort}/CarlaCtrlPWA`
+        )
+      );
       // Send a registration message, similar to how the Python client does.
       // The path /register and the format of the client URL might need to be exact.
       // Example: oscOverTCP?.send(new OSC.Message('/register', `osc.tcp://${someClientIdentifier}:${someClientPort}/CarlaCtrlPWA`));

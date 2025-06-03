@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { ChangeEvent } from 'react'; // For verbatimModuleSyntax
-import { useQuery } from '@tanstack/react-query'; // Removed useQueryClient
+import { useQuery } from "@tanstack/react-query";
 
 // === Type Definitions ===
 export interface PluginParameter { /* ... existing ... */
